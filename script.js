@@ -18,9 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // After intro, reveal main site
     setTimeout(() => {
         introOverlay.classList.add('fade-out');
-        mainSite.classList.remove('hidden');
-        mainSite.style.opacity = '1';
+        mainSite.style.opacity = '0';
         mainSite.style.transition = 'opacity 0.8s ease';
+        mainSite.classList.remove('hidden');
+        setTimeout(() => { mainSite.style.opacity = '1'; }, 20);
 
         // Trigger hero animations
         setTimeout(() => {
@@ -227,6 +228,39 @@ document.addEventListener('DOMContentLoaded', () => {
             element.textContent = Math.floor(current);
         }, stepTime);
     }
+
+
+    /* ========================================
+       PROJECT GALLERY
+       ======================================== */
+    document.querySelectorAll('.project-gallery').forEach(gallery => {
+        const slides = gallery.querySelectorAll('.gallery-slide');
+        const dots = gallery.querySelectorAll('.gdot');
+        let current = 0;
+        let timer;
+
+        function goTo(index) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = index;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
+        }
+
+        function startAuto() {
+            timer = setInterval(() => goTo((current + 1) % slides.length), 3000);
+        }
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                clearInterval(timer);
+                goTo(i);
+                startAuto();
+            });
+        });
+
+        startAuto();
+    });
 
 
     /* ========================================
