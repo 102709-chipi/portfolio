@@ -1,0 +1,26 @@
+{
+  "name": "profiel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/102709-chipi/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/102709-chipi/portfolio/issues"
+  },
+  "homepage": "https://github.com/102709-chipi/portfolio#readme",
+  "devDependencies": {
+    "vite": "^8.0.16"
+  }
+}
